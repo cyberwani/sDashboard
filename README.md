@@ -139,6 +139,30 @@ Default value is false, when set to true, registers a chart selection event inst
 
 * When using a basic widget, it can represent an string or any html dom element. For example, if a dom element already exists on the page, and you want to render it as a dashboard widget, simply get a hook to the dom element using $("#id") (or any jQuery selector) and pass it to the widgetDefinition by setting it on the widgetContent.
 
+```javascript
+
+//for simple string set the widget content as
+
+$("#myDashboard").sDashboard("addWidget",{
+	widgetId: "id12345",
+	widgetTitle:"String example",
+	widgetContent:"Some random string, that renders as a widget"
+});
+
+
+//for a dom element, set the widget content as
+
+$("#myDashboard").sDashboard("addWidget",{
+	widgetId: "id123456",
+	widgetTitle:"Existing Dom example",
+	widgetContent:$("SomeDomElementID Or Class")
+});
+
+
+
+```
+
+
 * if widgetType is set to `chart`, the `widgetContent` is set as an object with two keys, `data` and `options`, a sample setup looks like
 
 ```javascript
