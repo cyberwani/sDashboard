@@ -1,2 +1,2 @@
-simple.dashboard
-================
+sDashboard
+==========
