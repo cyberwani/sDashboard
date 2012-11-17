@@ -12,7 +12,7 @@ sDashboards has built in support for rendering  datatable's and flotr2 charts.  
 
 ##Demo
 
-view an example at : [example](http://niki4810.github.com/sDashboard/example/example.html)
+view an example at : [example](http://modeln.github.com/sDashboard/example/example.html)
 
 
 ##Features
