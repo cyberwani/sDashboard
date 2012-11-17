@@ -5,7 +5,7 @@
  * https://github.com/ModelN/sDashboard
  */
 
-$.widget("nk.sDashboard", {
+$.widget("mn.sDashboard", {
 	version : "2.0",
 	options : {
 		dashboardData : []
