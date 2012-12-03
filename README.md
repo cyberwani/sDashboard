@@ -25,7 +25,7 @@ Current version : V2.0 (aka Salt&Pepper)
 * Support for chart click and selection
 * Support to listen for widget rearrangement and get the re-arranged widget definitions array
 * Improvements to maximize feature on widgets, Widgets can now maximize to full screen
-* Source code for the library reduce by 15% in compared to previous code ( I know this is a show off :D)
+* Source code for the library reduce by 15% when compared to previous code ( I know this is a show off :D)
 * Re- architectured the way we render charts to support more type of charts instead of sticking to bar, pie and line.
 * Added example to render an already existing dom element as a dashboard widget (see the twitter widget on the demo page)
 
@@ -173,10 +173,9 @@ $("#myDashboard").sDashboard("addWidget",{
      widgetId : "id123",
      widgetTitle: "Widget Title",
      widgetType : "chart",
-	//isADonut : True //uncomment if the chart is a donut chart
-	widgetContent : {
-	data : chartData,
-	options : chartOptions	
+	 widgetContent : {
+	 data : chartData,
+	 options : chartOptions	
 }
 });
 
