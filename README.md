@@ -12,7 +12,7 @@ sDashboards has built in support for rendering  datatable's and flotr2 charts.  
 
 ##Demo
 
-view an example at : [example](http://modeln.github.com/sDashboard/example/example.html)
+view an example at : [Link to example](http://modeln.github.com/sDashboard/example/example.html)
 
 
 ##Features
@@ -23,11 +23,11 @@ Current version : V2.0 (aka Salt&Pepper)
 
 * Full support for all Flort2 charts.
 * Support for chart click and selection
-* Support to listen for widget rearrangement and get the re-arranged widget definitions array
+* Support to listen for widget rearrangement and get the rearranged widget definitions array
 * Improvements to maximize feature on widgets, Widgets can now maximize to full screen
 * Source code for the library reduce by 15% when compared to previous code ( I know this is a show off :D)
 * Re- architectured the way we render charts to support more type of charts instead of sticking to bar, pie and line.
-* Added example to render an already existing dom element as a dashboard widget (see the twitter widget on the demo page)
+* Added example to render an existing dom element as a dashboard widget (see the twitter widget on the demo page)
 
 Previous version : V1.0
 
@@ -101,8 +101,8 @@ var widgetDefinitions =[
 		widgetContent: "Some Random Content" //content for the widget
 	},
 	{
-		widgetTitle : "Widget 1" //Title of the widget
-		widgetId: "Widget1" //unique id for the widget
+		widgetTitle : "Widget 2" //Title of the widget
+		widgetId: "Widget2" //unique id for the widget
 		widgetContent: "Some Random Content" //content for the widget
 	}
 ]
@@ -314,15 +314,15 @@ $("#myDashboard").bind("sdashboardorderchanged", function(e, data) {
 
 ##What's Next
 
-* I am working on implementing features for refreshing individual widgets data and enabling multiple views within a widget, for ex a widget an display a table, bar and pie chart with in it.
+* I am working on implementing features for refreshing individual widgets data and enabling multiple views within a widget, for example, a widget can display a table, bar and pie chart with in it.
 * More documentation and bug fixes :D
 
 ##Fun Facts
-* As you have notices V2.0 is a named release called Salt&Pepper. Just like salt and pepper add great flavor to the food, this release adds a great flavor and taste to the sDashboard framework :D .In all seriousness, I just felt its easy to remember the version with a name rather than a version number.
+* As you have notices V2.0 is a named release called Salt&Pepper. Just like the way salt and pepper add great flavor to your food, this release adds great flavor and taste to the sDashboard framework :D .In all seriousness, I just felt its easy to remember the version with a name rather than a version number.
 
 ##Architectural Changes
 
-One of the major change I've made is to replace slot charts with flotr2 library, I ve been researching many charting libraries and I strongly feel that flotr2 is the best charting library in terms of the features and ease of use it provides. Hence went forward with this library. 
+One of the major change I've made is to replace flot charts with flotr2 library, I ve been researching many charting libraries and I strongly feel that flotr2 is the best charting library in terms of the features and ease of use it provides. Hence I went forward with using this library for sDashboard. 
 
 ##Credits
 
