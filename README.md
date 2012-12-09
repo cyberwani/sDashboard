@@ -38,7 +38,8 @@ V2.0 (aka Salt&Pepper)
 * Re- architectured the way we render charts to support more type of charts instead of sticking to bar, pie and line.
 * Added example to render an existing dom element as a dashboard widget (see the twitter widget on the demo page)
 
-V1.0 :
+V1.0 
+
 * Drag and rearrange widgets
 * Maximizing & Minimizing a widget
 * Close Widgets
