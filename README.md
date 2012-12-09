@@ -19,7 +19,16 @@ view an example at : [Link to example](http://modeln.github.com/sDashboard/examp
 
 The current version of the dashboard includes the following features
 
-Current version : V2.0 (aka Salt&Pepper)
+current 
+
+Current version : V2.0.1 
+* Added support for listening to dashboard creation complete event.
+* Added support for listening to widget maximized or widget minimized events.
+
+
+Previous version's : 
+
+V2.0 (aka Salt&Pepper)
 
 * Full support for all Flort2 charts.
 * Support for chart click and selection
@@ -29,8 +38,7 @@ Current version : V2.0 (aka Salt&Pepper)
 * Re- architectured the way we render charts to support more type of charts instead of sticking to bar, pie and line.
 * Added example to render an existing dom element as a dashboard widget (see the twitter widget on the demo page)
 
-Previous version : V1.0
-
+V1.0 :
 * Drag and rearrange widgets
 * Maximizing & Minimizing a widget
 * Close Widgets
@@ -310,6 +318,42 @@ When widgets are rearranged by dragging around, the sDashboard dispatches a `sda
 $("#myDashboard").bind("sdashboardorderchanged", function(e, data) {
 	console.log(data.sortedDefinitions);
 });
+```
+
+###Dashboard creation complete
+
+When the dashboard creation is completed, the sDashboard dispatches a `sdashboardcreationcomplete` event. Here is a sample code snippet to listen to creation complete event
+
+```javascript
+
+$("#myDashboard").bind("sdashboardcreationcomplete", function(e) {										
+	// your logic goes here
+});
+
+```
+
+###Widget Maximized
+
+When a dasboard widget is maximized, the sDashboard dispatches a `sdashboardwidgetmaximized` event. This event carries the maximized widget's widget definition object, through which you can get hold of the widget id, widget title and widget content. Here is a sample code snippet for listening to widget maximized event
+
+```javascript
+
+$("#myDashboard").bind("sdashboardwidgetmaximized", function(e,data) {					
+	var widgetDefinition = data.widgetDefinition;
+});
+
+```
+
+###Widget Minimized
+
+When a dasboard widget is minimized, the sDashboard dispatches a `sdashboardwidgetminimized` event. This event carries the minimized widget's widget definition object, through which you can get hold of the widget id, widget title and widget content. Here is a sample code snippet for listening to widget minimized event
+
+```javascript
+
+$("#myDashboard").bind("sdashboardwidgetminimized", function(e,data) {					
+	var widgetDefinition = data.widgetDefinition;
+});
+
 ```
 
 ##What's Next
