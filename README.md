@@ -12,24 +12,34 @@ sDashboards has built in support for rendering  datatable's and flotr2 charts.  
 
 ##Demo
 
-view an example at : [example](http://modeln.github.com/sDashboard/example/example.html)
+view an example at : [Link to example](http://modeln.github.com/sDashboard/example/example.html)
 
 
 ##Features
 
 The current version of the dashboard includes the following features
 
-Current version : V2.0 (aka Salt&Pepper)
+current 
+
+Current version : V2.0.1
+ 
+* Added support for listening to dashboard creation complete event.
+* Added support for listening to widget maximized or widget minimized events.
+
+
+Previous version's : 
+
+V2.0 (aka Salt&Pepper)
 
 * Full support for all Flort2 charts.
 * Support for chart click and selection
-* Support to listen for widget rearrangement and get the re-arranged widget definitions array
+* Support to listen for widget rearrangement and get the rearranged widget definitions array
 * Improvements to maximize feature on widgets, Widgets can now maximize to full screen
-* Source code for the library reduce by 15% in compared to previous code ( I know this is a show off :D)
+* Source code for the library reduce by 15% when compared to previous code ( I know this is a show off :D)
 * Re- architectured the way we render charts to support more type of charts instead of sticking to bar, pie and line.
-* Added example to render an already existing dom element as a dashboard widget (see the twitter widget on the demo page)
+* Added example to render an existing dom element as a dashboard widget (see the twitter widget on the demo page)
 
-Previous version : V1.0
+V1.0 
 
 * Drag and rearrange widgets
 * Maximizing & Minimizing a widget
@@ -101,8 +111,8 @@ var widgetDefinitions =[
 		widgetContent: "Some Random Content" //content for the widget
 	},
 	{
-		widgetTitle : "Widget 1" //Title of the widget
-		widgetId: "Widget1" //unique id for the widget
+		widgetTitle : "Widget 2" //Title of the widget
+		widgetId: "Widget2" //unique id for the widget
 		widgetContent: "Some Random Content" //content for the widget
 	}
 ]
@@ -139,6 +149,30 @@ Default value is false, when set to true, registers a chart selection event inst
 
 * When using a basic widget, it can represent an string or any html dom element. For example, if a dom element already exists on the page, and you want to render it as a dashboard widget, simply get a hook to the dom element using $("#id") (or any jQuery selector) and pass it to the widgetDefinition by setting it on the widgetContent.
 
+```javascript
+
+//for simple string set the widget content as
+
+$("#myDashboard").sDashboard("addWidget",{
+	widgetId: "id12345",
+	widgetTitle:"String example",
+	widgetContent:"Some random string, that renders as a widget"
+});
+
+
+//for a dom element, set the widget content as
+
+$("#myDashboard").sDashboard("addWidget",{
+	widgetId: "id123456",
+	widgetTitle:"Existing Dom example",
+	widgetContent:$("SomeDomElementID Or Class")
+});
+
+
+
+```
+
+
 * if widgetType is set to `chart`, the `widgetContent` is set as an object with two keys, `data` and `options`, a sample setup looks like
 
 ```javascript
@@ -149,10 +183,9 @@ $("#myDashboard").sDashboard("addWidget",{
      widgetId : "id123",
      widgetTitle: "Widget Title",
      widgetType : "chart",
-	//isADonut : True //uncomment if the chart is a donut chart
-	widgetContent : {
-	data : chartData,
-	options : chartOptions	
+	 widgetContent : {
+	 data : chartData,
+	 options : chartOptions	
 }
 });
 
@@ -289,17 +322,53 @@ $("#myDashboard").bind("sdashboardorderchanged", function(e, data) {
 });
 ```
 
+###Dashboard creation complete
+
+When the dashboard creation is completed, the sDashboard dispatches a `sdashboardcreationcomplete` event. Here is a sample code snippet to listen to creation complete event
+
+```javascript
+
+$("#myDashboard").bind("sdashboardcreationcomplete", function(e) {										
+	// your logic goes here
+});
+
+```
+
+###Widget Maximized
+
+When a dasboard widget is maximized, the sDashboard dispatches a `sdashboardwidgetmaximized` event. This event carries the maximized widget's widget definition object, through which you can get hold of the widget id, widget title and widget content. Here is a sample code snippet for listening to widget maximized event
+
+```javascript
+
+$("#myDashboard").bind("sdashboardwidgetmaximized", function(e,data) {					
+	var widgetDefinition = data.widgetDefinition;
+});
+
+```
+
+###Widget Minimized
+
+When a dasboard widget is minimized, the sDashboard dispatches a `sdashboardwidgetminimized` event. This event carries the minimized widget's widget definition object, through which you can get hold of the widget id, widget title and widget content. Here is a sample code snippet for listening to widget minimized event
+
+```javascript
+
+$("#myDashboard").bind("sdashboardwidgetminimized", function(e,data) {					
+	var widgetDefinition = data.widgetDefinition;
+});
+
+```
+
 ##What's Next
 
-* I am working on implementing features for refreshing individual widgets data and enabling multiple views within a widget, for ex a widget an display a table, bar and pie chart with in it.
+* I am working on implementing features for refreshing individual widgets data and enabling multiple views within a widget, for example, a widget can display a table, bar and pie chart with in it.
 * More documentation and bug fixes :D
 
 ##Fun Facts
-* As you have notices V2.0 is a named release called Salt&Pepper. Just like salt and pepper add great flavor to the food, this release adds a great flavor and taste to the sDashboard framework :D .In all seriousness, I just felt its easy to remember the version with a name rather than a version number.
+* As you have notices V2.0 is a named release called Salt&Pepper. Just like the way salt and pepper add great flavor to your food, this release adds great flavor and taste to the sDashboard framework :D .In all seriousness, I just felt its easy to remember the version with a name rather than a version number.
 
 ##Architectural Changes
 
-One of the major change I've made is to replace slot charts with flotr2 library, I ve been researching many charting libraries and I strongly feel that flotr2 is the best charting library in terms of the features and ease of use it provides. Hence went forward with this library. 
+One of the major change I've made is to replace flot charts with flotr2 library, I ve been researching many charting libraries and I strongly feel that flotr2 is the best charting library in terms of the features and ease of use it provides. Hence I went forward with using this library for sDashboard. 
 
 ##Credits
 

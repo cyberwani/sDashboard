@@ -57,6 +57,10 @@ $.widget("mn.sDashboard", {
 
 		//bind events for widgets
 		this._bindEvents();
+		
+		//trigger creation complete when the dashboard widgets are constructed
+		this._trigger("creationComplete", null);
+		
 	},
 	_getWidgetContentForId : function(id, context) {
 		var widgetData = context.getDashboarData();
@@ -73,26 +77,31 @@ $.widget("mn.sDashboard", {
 		//click event for maximize button
 		this.element.find(".sDashboardWidgetHeader span.ui-icon.ui-icon-circle-plus").live("click", function(e) {
 
-			//toggle the maximize icon into minimize icon
-			$(e.currentTarget).toggleClass("ui-icon-circle-minus");
-			//change the tooltip on the maximize/minimize icon buttons
-			if ($(e.currentTarget).attr("title") === "Maximize") {
-				$(e.currentTarget).attr("title", "Minimize");
-			} else {
-				$(e.currentTarget).attr("title", "Maximize");
-			}
 			//get the widget List Item Dom
 			var widgetListItem = $(e.currentTarget).parents("li:first");
 			//get the widget Container
 			var widget = $(e.currentTarget).parents(".sDashboardWidget:first");
 			//get the widget Content
 			var widgetContainer = widget.find(".sDashboardWidgetContent");
+			
+			var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
+			
+			//toggle the maximize icon into minimize icon
+			$(e.currentTarget).toggleClass("ui-icon-circle-minus");
+			//change the tooltip on the maximize/minimize icon buttons
+			if ($(e.currentTarget).attr("title") === "Maximize") {
+				$(e.currentTarget).attr("title", "Minimize");
+				self._trigger("widgetMaximized", null,{"widgetDefinition": widgetDefinition});
+			} else {
+				$(e.currentTarget).attr("title", "Maximize");
+				self._trigger("widgetMinimized", null,{"widgetDefinition": widgetDefinition});
+			}
 
 			//toggle the class for widget and inner container
 			widget.toggleClass("sDashboardWidgetContainerMaximized");
 			widgetContainer.toggleClass("sDashboardWidgetContentMaximized ");
 
-			var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
+			
 			if (widgetDefinition.widgetType === "chart") {
 				var chartArea = widgetContainer.find(" div.sDashboardChart")
 				Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
