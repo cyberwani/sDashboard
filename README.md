@@ -21,7 +21,8 @@ The current version of the dashboard includes the following features
 
 current 
 
-Current version : V2.0.1 
+Current version : V2.0.1
+ 
 * Added support for listening to dashboard creation complete event.
 * Added support for listening to widget maximized or widget minimized events.
 
