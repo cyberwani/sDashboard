@@ -1,9 +1,10 @@
+
 <html>
 	<head>
 
-		<!-- load jquery ui css theme -->
-		<link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
-
+		<!-- load jquery ui bootstrap css theme -->	
+		<link type="text/css" href="https://raw.github.com/addyosmani/jquery-ui-bootstrap/master/css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+			
 		<!-- load the dashboard css -->
 		<link href="../sDashboard.css" rel="stylesheet">
 
@@ -32,9 +33,6 @@
 		<!-- load dashboard library -->
 		<script src="../jquery-sDashboard.js" type="text/javascript"> </script>
 
-		<!-- theme switcher -->
-		<script src="libs/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"> </script>
-
 		<!-- mini twitter library -->
 		<script src="libs/miniTwitter/jquery.minitwitter.js" type="text/javascript"> </script>
 
@@ -46,12 +44,7 @@
 				//create a mini twitter div which is external
 				$("#myTweets").miniTwitter('ladygaga');
 
-				//Theme switcher plugin
-				$("#switcher").themeswitcher({
-					imgpath : "css/images/",
-					loadTheme : "cupertino"
-				});
-
+				
 				//**********************************************//
 				//dashboard json data
 				//this is the data format that the dashboard framework expects
@@ -70,7 +63,6 @@
 					widgetTitle : "Table Widget",
 					widgetId : "id3",
 					widgetType : "table",
-					setJqueryStyle : true,
 					widgetContent : myExampleData.tableWidgetData
 				}, {
 					widgetTitle : "Text Widget",
@@ -185,7 +177,6 @@
 						widgetTitle : "Table Widget 2",
 						widgetId : "id007",
 						widgetType : "table",
-						setJqueryStyle : true,
 						widgetContent : myExampleData.tableWidgetData
 					});
 
@@ -265,8 +256,6 @@
 		<button id="btnAddLineChartWidget">
 			6) Add Line Chart widget
 		</button>
-
-		<div id="switcher" style="float:right;"> </div>
 		
 		<hr/>
 		<ul id="myDashboard">
