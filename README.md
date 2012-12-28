@@ -21,13 +21,19 @@ The current version of the dashboard includes the following features
 
 current 
 
-Current version : V2.0.1
- 
-* Added support for listening to dashboard creation complete event.
-* Added support for listening to widget maximized or widget minimized events.
+Current version : V2.2 (aka AMDfying)
+
+* Added support to load the library in an AMD setup.
+* Added an example with bootstrap style. 
 
 
 Previous version's : 
+
+V2.0.1
+
+* Added support for listening to dashboard creation complete event.
+* Added support for listening to widget maximized or widget minimized events.
+
 
 V2.0 (aka Salt&Pepper)
 
@@ -144,6 +150,10 @@ Type of widget, possible values are : `table` , `chart` . When set to table, the
 ###getDataBySelection 
 
 Default value is false, when set to true, registers a chart selection event instead of chart click on the flotr2 charts. Generally turn on this setting, if you are using a line chart, for ease of selecting chart data.
+
+###setJqueryStyle
+
+Default value is false, but when set to true, the table widget styles the datatable with jquery ui theme
 
 ###widgetContent 
 
