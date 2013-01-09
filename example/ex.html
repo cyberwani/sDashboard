@@ -1,10 +1,16 @@
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 
-		<!-- load jquery ui bootstrap css theme -->	
-		<link type="text/css" href="https://raw.github.com/addyosmani/jquery-ui-bootstrap/master/css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
-			
+		<!-- load jquery ui bootstrap css theme -->
+		<link type="text/css" href="css/bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+		<link href="css/bootstrap/bootstrap/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap/css/demo.css" rel="stylesheet">
+		<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/css/custom-theme/custom-theme/jquery.ui.1.8.16.ie.css"/>
+		<![endif]-->
+
+
 		<!-- load the dashboard css -->
 		<link href="../sDashboard.css" rel="stylesheet">
 
@@ -237,27 +243,30 @@
 	</head>
 
 	<body>
+		<div style="padding-top: 5px;">
 		<label>Features :</label>
-		<button id="btnAddWidget">
+		<button class="btn" id="btnAddWidget">
 			1) Add Widget
 		</button>
-		<button id="btnAddTableWidget">
+		<button class="btn" id="btnAddTableWidget">
 			2) Add Table widget
 		</button>
-		<button id="btnDeleteWidget">
+		<button class="btn" id="btnDeleteWidget">
 			3) Delete Table Widget
 		</button>
-		<button id="btnAddPieChartWidget">
+		<button class="btn" id="btnAddPieChartWidget">
 			4) Add Pie Chart widget
 		</button>
-		<button id="btnAddBarChartWidget">
+		<button class="btn" id="btnAddBarChartWidget">
 			5) Add Bar Chart widget
 		</button>
-		<button id="btnAddLineChartWidget">
+		<button class="btn" id="btnAddLineChartWidget">
 			6) Add Line Chart widget
 		</button>
-		
+		<a href="example.html" style="float:right;">Link to Jquery Theme (old and boring theme)</a>
+		</div>
 		<hr/>
+		
 		<ul id="myDashboard">
 
 		</ul>
