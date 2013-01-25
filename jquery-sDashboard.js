@@ -1,5 +1,5 @@
 /*
- * jquery sDashboard (2.0)
+ * jquery sDashboard (2.2)
  * Copyright 2012, Model N, Inc
  * Distributed under MIT license.
  * https://github.com/ModelN/sDashboard
@@ -85,7 +85,7 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.find(".sDashboardWidgetHeader span.ui-icon.ui-icon-circle-plus").live("click", function(e) {
+				this.element.on("click",".sDashboardWidgetHeader span.ui-icon.ui-icon-circle-plus",function(e){
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
@@ -127,7 +127,7 @@
 				});
 
 				//delete widget by clicking the 'x' icon on the widget
-				this.element.find(".sDashboardWidgetHeader span.ui-icon.ui-icon-circle-close").live("click", function(e) {
+				 this.element.on("click",".sDashboardWidgetHeader span.ui-icon.ui-icon-circle-close",function(e){
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					//show hide effect
@@ -137,7 +137,7 @@
 				});
 
 				//table row click
-				this.element.find(".sDashboardWidgetContent table.sDashboardTableView tbody tr").live("click", function(e) {
+				this.element.on("click",".sDashboardWidgetContent table.sDashboardTableView tbody tr",function(e){
 					var selectedRow = $(e.currentTarget);
 
 					if (selectedRow.length > 0) {
